@@ -1,0 +1,17 @@
+workflows:
+  flutter-build:
+    name: Build Android APK
+    environment:
+      flutter: stable
+      java: 17
+    scripts:
+      - name: Get Flutter packages
+        script: flutter pub get
+      - name: Build release APK
+        script: flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
+    publishing:
+      email:
+        recipients:
+          - chattabhelp@gmail.com
